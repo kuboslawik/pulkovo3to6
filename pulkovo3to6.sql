@@ -7,7 +7,7 @@ CREATE OR REPLACE FUNCTION f_pulkovo3to6(
     point_6 sde.st_geometry;
     string VARCHAR2(50);
     string_out VARCHAR2(50);
-    srid in NUMBER (4);
+    srid_in NUMBER (4);
     srid_out NUMBER (4);
 BEGIN
     IF
