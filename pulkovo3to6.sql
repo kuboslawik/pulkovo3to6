@@ -29,11 +29,11 @@ BEGIN
     END IF;
     string := 'point (' || replace(y_in, ',','.') || ' ' || replace(x_in, ',', '.') || ')';
     point_3 := sde.st_pointfromtext(string, srid_in);
-    point_wgs : sde.st_geometry_operators.st_transform_f(point_3, 4326);
-    IF point_wgs.minx <= 18 THEN srid out := 3333; 
-    ELSE srid out := 3334;
+    point_wgs := sde.st_geometry_operators.st_transform_f(point_3, 4326);
+    IF point_wgs.minx <= 18 THEN srid_out := 3333; 
+    ELSE srid_out := 3334;
     END IF;
     point_6 := sde.st_geometry_operators.st_transform_f(point_3, srid_out);
     string_out := round(point_6.miny, 2) || ';' || round(point_6.minx, 2);
     RETURN string_out;
-END
+END;
